@@ -1,0 +1,15 @@
+# Anti-Van-der-Waerden-game
+
+Intput Data:
+  1. Board size - n
+  2. Lenght of winning series - k
+  3. Number of avaliable colors - c
+  
+Rules:
+  1. Game is for 2 players
+  2. In his tourn player colour one of blank field with colour he choose.
+
+Winnig: 
+First player wins if on board exist k-long arithmetical series, where all elements are colored with different colour.
+Second player wins if after coloring all fields, there is not a single k-long arithmetical series where all of its elements are 
+coloured with different colors.
