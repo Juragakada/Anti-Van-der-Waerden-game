@@ -16,13 +16,13 @@ public:
 
     void intput_data(int n,int k, int c);
 
-    void create_board(int size);
+    void create_board();
 
-    void create_board(int size,vector<int> &board,int number);
+    void create_board(int number);
 
-    void clear_board(vector<int>& board, int lenght);
+    void clear_board();
 
-    void clear_board(vector<int>& board, int lenght, int number);
+    void clear_board( int number);
 
     void color_the_field(int n,int c);
     
