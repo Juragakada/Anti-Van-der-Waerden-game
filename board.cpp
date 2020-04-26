@@ -9,26 +9,26 @@ void board::intput_data(int n,int k, int c){
         number_of_colours=c; 
 }
 
-void board::create_board(int size){
+void board::create_board(){
         for(int i=0;i<size;i++){
             board.push_back(0);
         }
 }
 
-void board::create_board(int size,vector<int> &board,int number){
+void board::create_board(int number){
         for(int i=0;i<size;i++){
             board.push_back(number);
         }
 }
 
-void board::clear_board(vector<int>& board, int lenght){
+void board::clear_board(){
         board.clear();
-        create_board(lenght);
+        create_board();
 }
 
-void board::clear_board(vector<int>& board, int lenght, int number){
+void board::clear_board(int number){
         board.clear();
-        create_board(lenght,board,number);
+        create_board(number);
 }
 
 void board::color_the_field(int n,int c){
