@@ -9,7 +9,7 @@ void board::intput_data(int n,int k, int c){
         number_of_colours=c; 
 }
 
-void board::create_board(int size,vector<int> &board){
+void board::create_board(int size){
         for(int i=0;i<size;i++){
             board.push_back(0);
         }
@@ -23,7 +23,7 @@ void board::create_board(int size,vector<int> &board,int number){
 
 void board::clear_board(vector<int>& board, int lenght){
         board.clear();
-        create_board(lenght,board);
+        create_board(lenght);
 }
 
 void board::clear_board(vector<int>& board, int lenght, int number){

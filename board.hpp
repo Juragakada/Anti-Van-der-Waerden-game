@@ -1,9 +1,10 @@
 #ifndef board_hpp
 #define board_hpp
+
 #include <iostream>
 #include <vector>
 
-using namespace std;
+using std::vector;
 
 class board{
 public:
@@ -15,7 +16,7 @@ public:
 
     void intput_data(int n,int k, int c);
 
-    void create_board(int size,vector<int> &board);
+    void create_board(int size);
 
     void create_board(int size,vector<int> &board,int number);
 
