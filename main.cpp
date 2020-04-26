@@ -2,6 +2,7 @@
 #include <vector>
 #include "board.hpp"
 #include "HistoryOfMoves.hpp"
+#include "PvP.hpp"
 
 using namespace std;
 
@@ -21,9 +22,9 @@ int main(){
         while(1){
                 
             cin >> a;
-            
+
                 if (a=="1"){
-                   
+                    PvP();
                     //function with game
                     break;
                 
