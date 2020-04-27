@@ -2,7 +2,7 @@
 #include <vector>
 #include "board.hpp"
 #include "HistoryOfMoves.hpp"
-#include "PvP.hpp"
+#include "PvC_easy.hpp"
 
 using namespace std;
 
@@ -24,13 +24,13 @@ int main(){
             cin >> a;
 
                 if (a=="1"){
-                    PvP();
+                    //PvP();
                     //function with game
                     break;
                 
                 } else if (a=="2"){
                     
-                    //function with game 
+                    PvC(); 
                     break;
                 
                 } else if (a=="x"){
