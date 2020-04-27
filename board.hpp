@@ -8,9 +8,9 @@ using std::vector;
 
 class board{
 public:
-    unsigned int size;
-    unsigned int winning_series_size;
-    unsigned int number_of_colours; 
+    int size;
+    int winning_series_size;
+    int number_of_colours; 
     vector<int> board;
     vector<int> colours;
 
