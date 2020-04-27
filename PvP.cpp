@@ -69,11 +69,14 @@ void PvP(){
         while(1){
             
             cin >> a;
-            if (a<=first.size && a>0){
-                break;
-            } else {
+            if (a>=first.size || a<0){
                 cout << "Enter correct field" << endl;
+            } else if(first.board[a-1]!=0){
+                cout << "You cannot recolor this field, enter empty field" << endl;
+            } else if(first.board[a-1]==0){
+                break;
             }
+
         }
 
         cout << "Choose color" << endl;
@@ -82,7 +85,7 @@ void PvP(){
             
             cin >> b;
 
-            if (b<=first.number_of_colours){
+            if (b<=first.number_of_colours && b>0) {
                 break;
             } else {
                 cout << "Enter correct color" << endl;
@@ -93,6 +96,7 @@ void PvP(){
         first.color_the_field(a,b);
         HOS.add_move(a-1,b,Gamers.player);
         first.print_board(first.board);
+
         if(HOS.History.size()>=first.winning_series_size){
         bool c=first.check_if_win(a);
         if(c==1){
@@ -100,7 +104,10 @@ void PvP(){
             break;
         }
         }
-        
+        if(HOS.History.size()==n){
+            cout << Gamers.second_player_name << " won!" << endl;
+            break; 
+        }
         Gamers.change_player();
 
 
