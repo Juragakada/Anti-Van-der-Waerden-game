@@ -93,12 +93,13 @@ void PvP(){
         first.color_the_field(a,b);
         HOS.add_move(a-1,b,Gamers.player);
         first.print_board(first.board);
-
-        // if(first.check_if_win(a)==1){
-        //     cout << Gamers.first_player_name << " won!" << endl;
-        //     break;
-        // }
-
+        if(HOS.History.size()>=first.winning_series_size){
+        bool c=first.check_if_win(a);
+        if(c==1){
+            cout << Gamers.first_player_name << " won!" << endl;
+            break;
+        }
+        }
         
         Gamers.change_player();
 

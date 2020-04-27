@@ -17,7 +17,7 @@ int main(){
         cout << "Choose Game Mode:" << endl;
         cout << " 1 - Player vs Player" << endl;
         cout << " 2 - Player vs Computer" << endl;
-        
+        cout << " x - Exit" << endl;
         string a;
         while(1){
                 
@@ -33,6 +33,8 @@ int main(){
                     //function with game 
                     break;
                 
+                } else if (a=="x"){
+                    return 0;
                 } else {
                    
                     cout << "Wrong Number" << endl;

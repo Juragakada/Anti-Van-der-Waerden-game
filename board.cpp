@@ -5,6 +5,7 @@
 
 
 
+
 void board::create_board(int size,vector<int> &board){
         for(int i=0;i<size;i++){
             board.push_back(0);
@@ -46,13 +47,13 @@ bool board::check_if_win(int last_move){
             colours[0][i]=i+1;
             //The numbers in second row cannot be 0, becouse if any colour would be in series[0], algorihtm would asign 0 and it will
             //generate mistake
-            colours[1][i]=number_of_colours+1;
+            colours[1][i]=2*winning_series_size;
             }
         
         //Loop 1- setting x - the differnce between elements of series
-        for(int x=0;x<max_x;x++){
+        for(int x=1;x<max_x;x++){
 
-            series[winning_series_size-1]=board[last_move];
+            series[winning_series_size-1]=board[last_move-1]; //add -1
 
             //Filling series with board elements from center to end
             for(int i=0;i<winning_series_size;i++){
@@ -64,7 +65,7 @@ bool board::check_if_win(int last_move){
                     break;
 
                 } else {
-                    series[winning_series_size-1+i]=board[last_move+(i*x)];
+                    series[winning_series_size-1+i]=board[last_move-1+(i*x)];
                 }
             }
 
@@ -77,7 +78,7 @@ bool board::check_if_win(int last_move){
                     break;
                     
                 } else {
-                    series[winning_series_size-1-i]=board[last_move-(i*x)];
+                    series[winning_series_size-1-i]=board[last_move-1-(i*x)];
                 }
             }
             
@@ -96,16 +97,21 @@ bool board::check_if_win(int last_move){
                 //comparison for all elements
                 for(int j=0;j<winning_series_size;j++){
                     
+                    if(series[i+j]==0){
+                        break;
+                    }
+
                     //comparison with all colour element
                     for(int k=0;i<number_of_colours;k++){
+                        
                         
                         //comparisson of element
                         if(series[i+j]==colours[0][k]){
                             
                             //checking if this is first appear of this colour
-                            if(colours[1][k]==number_of_colours+1){
+                            if(colours[1][k]==2*winning_series_size){
                                 
-                                colours[1][k]=i+j;
+                                colours[1][k]=i+j+1;
                                 break;
                             
                             }else {
@@ -120,6 +126,7 @@ bool board::check_if_win(int last_move){
 
                     //this is for accelerate alogirthm and begin new comparison 
                     if (same_color_error==1){
+                        clear_board(colours[1],number_of_colours,2*winning_series_size);
                         break;
                     }
                 }
@@ -127,7 +134,7 @@ bool board::check_if_win(int last_move){
                 //checking how many different colorous we have
                 for(int j=0;j<number_of_colours;j++){
 
-                    if(colours[1][i]!=number_of_colours+1){
+                    if(colours[1][j]!=2*winning_series_size){
 
                         number_of_different_colours++;
                     }
@@ -138,7 +145,7 @@ bool board::check_if_win(int last_move){
             }
             //preapering for creating new series
             clear_board(series,2*winning_series_size-1); 
-            clear_board(colours[1],number_of_colours,number_of_colours+1);
+            clear_board(colours[1],number_of_colours,2*winning_series_size);
         }
         return 0;        
 }
@@ -147,5 +154,5 @@ void board::print_board(vector<int> board){
     for(int i=0;i<board.size();i++){
         cout << " | " << board[i];
     }
-    cout << " | ";
+    cout << " | " << endl;
 }
